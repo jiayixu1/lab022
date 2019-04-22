@@ -1,5 +1,10 @@
-// starC.cpp   A demonstration of ASCII Art printing C characters
-
+// starC.cpp 2019.04.21 Jiayi Xu create a numer of strings shows a pattern of C
+//the first row and last row have length equal to width of stars
+//then we have the very left column has one star each
+//all the left are blank spaces
+//A demonstration of ASCII Art printing C characters
+// Compile using the command: g++ --std=c++11 starC.cpp -o starC
+//include part at the start of program
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -17,8 +22,8 @@ string starC(int width, int height)
 {
   string result="";
   // check if parameters are vaild
-    if ((width <2) || (height <= 2))
-        return result;  // return without printing anything
+    if ((width <2) || (height <= 2)){
+        return result;}  // return without printing anything
     //first print the first row of stars
     for (int col=1; col<=width;col++){
         result += "*";

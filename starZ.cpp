@@ -1,11 +1,15 @@
-// starZ.cpp   A demonstration of ASCII Art printing C characters
-//include the backslash file to make it easy
-//some detail of the part of code I explained it in backslash.h
+// starZ.cpp 2019.04.21 Jiayi Xu create a numer of strings shows a pattern of Z
+//the frist row and last row have length equal to width of stars
+//the stars between the two rows shows as "/"
+//all the left are blank spaces
+//A demonstration of ASCII Art printing Z characters
+// Compile using the command: g++ --std=c++11 starZ.cpp -o starZ
+//include part at the start of program
 #include <iostream>
 #include <cstdlib>
 #include <string>
 using namespace std;
-
+//we first call the functions
 void assertEquals(string expected, string actual, string message);
 string starZ(int width);
 void runTests(void);
@@ -21,14 +25,15 @@ string backslash(int width);
 string starZ(int width){
     string result = "";
     // check if parameters are vaild
-    if ((width <=2))
-        return result;  // return without printing anything
+    if ((width <=2)){
+        return result;}  // return without printing anything
     //first print the first row of stars
     for (int col=1; col<=width;col++){
         result += "*";
     }
-    result += "\n";
-    //use the backslash.h to draw the part, I changed some code in backslash to make it work
+    result += "\n";//return a new line
+    //use the function defined below, we can see that the width in the function should be
+    //the width of starZ-2 because we need to minus the first row and last row
     result += backslash(width-2);
     //then print the final line of stars
     for (int col=1; col<=width;col++){
@@ -118,12 +123,17 @@ string backslash(int width){
     for (i=height; i>=1;i--) {
         // i spaces then a single star
         int space=height+1-i;
+        //but we need to add the whtie space after the star
+        //the number of white space after star can be represented by the height+1-i
+        //and I put type in front of it to make it work
         result += stringOfKSpacesNStars(i,1)+ stringOfNChars(space, ' ')+ "\n";
+        //last but not least, turn into a new line
     }
     return result; // leave this out, and bad things happen
 }
 
-
+//below I just copied from backslash.cpp
+//these two parts are the same for backslash and forwardslash
 string stringOfNChars(int n, char c){
     int i;
     string result="";

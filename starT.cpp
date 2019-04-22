@@ -1,5 +1,10 @@
-// starT.cpp   A demonstration of ASCII Art printing T characters
-
+// starT.cpp 2019.04.21 Jiayi Xu create a numer of strings shows a pattern of T
+//the first row has length equal to width of stars
+//the middle column has one star
+//the left part are all blank spaces
+//A demonstration of ASCII Art printing T characters
+// Compile using the command: g++ --std=c++11 starT.cpp -o starT
+//include part at the start of program
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -16,8 +21,8 @@ string starT(int width, int height)
 {
   string result="";
     // check if parameters are vaild
-    if ((width<2) || (height < 2)||(width%2==0))
-        return result;  // return without printing anything
+    if ((width<2) || (height < 2)||(width%2==0)){
+        return result;}  // return without printing anything
     // first print the first row of stars
     for (int col=1; col<=width;col++){
         result += "*";
